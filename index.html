@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice of Farmers — New Zealand's Farming Community</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green:       #2E7D32;
+    --green-dark:  #1B5E20;
+    --green-mid:   #33691E;
+    --green-light: #F1F8E9;
+    --green-pale:  #F9FBF5;
+    --green-border:#C5E1A5;
+    --green-muted: #558B2F;
+    --amber:       #E65100;
+    --amber-light: #FFF3E0;
+    --teal:        #00695C;
+    --teal-light:  #E0F2F1;
+    --white:       #FFFFFF;
+    --off-white:   #FAFAF8;
+    --text:        #1A1A1A;
+    --text-mid:    #444444;
+    --text-light:  #666666;
+    --border:      #E0E0DC;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  a { color: var(--green); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--green-dark);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-brand {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .nav-brand span { color: #A5D6A7; font-weight: 400; font-size: 14px; display: block; line-height: 1.2; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: #C8E6C9; font-size: 14px; font-family: Arial, sans-serif; }
+  .nav-links a:hover { color: #fff; text-decoration: none; }
+  .nav-cta {
+    background: var(--white);
+    color: var(--green-dark) !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+  }
+  .nav-cta:hover { background: #E8F5E9 !important; text-decoration: none !important; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--green);
+    padding: 90px 5% 80px;
+    text-align: center;
+  }
+  .hero-pill {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: #C8E6C9;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 5px 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    color: var(--white);
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .hero-tagline {
+    color: #A5D6A7;
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-style: italic;
+    margin-bottom: 28px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-desc {
+    color: #C8E6C9;
+    font-size: 16px;
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    font-family: Arial, sans-serif;
+  }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--white);
+    color: var(--green-dark);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: #E8F5E9; text-decoration: none; }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.5);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--white); text-decoration: none; background: rgba(255,255,255,0.08); }
+
+  /* ── SECTION WRAPPERS ── */
+  .section { padding: 72px 5%; }
+  .section-alt { padding: 72px 5%; background: var(--green-light); }
+  .section-dark { padding: 72px 5%; background: var(--green-dark); }
+  .section-inner { max-width: 1060px; margin: 0 auto; }
+
+  .section-label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--green-muted);
+    margin-bottom: 10px;
+  }
+  .section-label-white { color: #A5D6A7; }
+
+  h2 {
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700;
+    color: var(--green-dark);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  h2.white { color: var(--white); }
+  .lead {
+    font-size: 17px;
+    color: var(--text-mid);
+    max-width: 680px;
+    line-height: 1.75;
+  }
+  .lead.white { color: #C8E6C9; font-family: Arial, sans-serif; }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--green-dark);
+    padding: 48px 5%;
+  }
+  .stats-grid {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .stat-item {
+    background: rgba(255,255,255,0.04);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #A5D6A7;
+    line-height: 1.5;
+  }
+  .stat-src {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: rgba(165,214,167,0.6);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* ── WHAT WE ARE ── */
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-top: 40px;
+  }
+  @media (max-width: 720px) { .what-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .what-text p { color: var(--text-mid); margin-bottom: 16px; font-size: 16px; line-height: 1.8; }
+  .what-box {
+    background: var(--green);
+    border-radius: 16px;
+    padding: 40px 36px;
+  }
+  .what-box h3 { color: var(--white); font-size: 20px; margin-bottom: 14px; }
+  .what-box p { color: #C8E6C9; font-family: Arial, sans-serif; font-size: 15px; line-height: 1.7; }
+  .what-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .tag {
+    background: rgba(255,255,255,0.15);
+    color: #E8F5E9;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 16px;
+  }
+
+  /* ── THREE PILLARS ── */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+  @media (max-width: 820px) { .pillars-grid { grid-template-columns: 1fr; } }
+
+  .pillar-card {
+    background: var(--white);
+    border: 1.5px solid var(--green-border);
+    border-top: 5px solid var(--green);
+    border-radius: 0 0 12px 12px;
+    padding: 28px 24px;
+  }
+  .pillar-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .pillar-card h3 { font-size: 18px; color: var(--green-dark); margin-bottom: 10px; }
+  .pillar-card p { font-family: Arial, sans-serif; font-size: 14px; color: var(--text-mid); line-height: 1.65; margin-bottom: 14px; }
+  .pillar-card ul { list-style: none; padding: 0; }
+  .pillar-card ul li {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    padding: 4px 0 4px 16px;
+    position: relative;
+    border-bottom: 0.5px solid var(--green-border);
+  }
+  .pillar-card ul li:last-child { border-bottom: none; }
+  .pillar-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+
+  /* ── WHO IT'S FOR ── */
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 36px;
+  }
+  .who-card {
+    background: var(--white);
+    border: 1.5px solid var(--green-border);
+    border-left: 4px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 18px;
+  }
+  .who-card h4 { font-size: 14px; font-family: Arial, sans-serif; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
+  .who-card p { font-family: Arial, sans-serif; font-size: 12px; color: var(--text-light); line-height: 1.5; }
+
+  /* ── WHY A WEBSITE ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .why-card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 22px;
+  }
+  .why-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--green-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .why-icon svg { width: 22px; height: 22px; fill: var(--green); }
+  .why-card h4 { font-size: 15px; color: var(--green-dark); margin-bottom: 8px; }
+  .why-card p { font-family: Arial, sans-serif; font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+  /* ── MISSION VISION SOUL ── */
+  .mvs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 40px;
+  }
+  @media (max-width: 720px) { .mvs-grid { grid-template-columns: 1fr; } }
+  .mvs-item {
+    background: rgba(255,255,255,0.05);
+    padding: 36px 28px;
+    text-align: center;
+  }
+  .mvs-label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #A5D6A7;
+    margin-bottom: 14px;
+  }
+  .mvs-item h3 { color: var(--white); font-size: 17px; line-height: 1.5; margin-bottom: 12px; }
+  .mvs-item p { font-family: Arial, sans-serif; font-size: 13px; color: rgba(200,230,200,0.85); line-height: 1.65; }
+
+  /* ── HOW IT HELPS ── */
+  .helps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  @media (max-width: 720px) { .helps-grid { grid-template-columns: 1fr; } }
+  .helps-card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 26px 24px;
+  }
+  .helps-card h4 { font-size: 15px; color: var(--green-dark); margin-bottom: 10px; }
+  .helps-card ul { list-style: none; padding: 0; }
+  .helps-card ul li {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--text-mid);
+    padding: 6px 0 6px 18px;
+    position: relative;
+    border-bottom: 0.5px solid #f0f0ec;
+    line-height: 1.5;
+  }
+  .helps-card ul li:last-child { border-bottom: none; }
+  .helps-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+  .audience-tag {
+    display: inline-block;
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* ── SUPPORT RESOURCES ── */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 36px;
+  }
+  .resource-card {
+    background: var(--green-pale);
+    border: 1.5px solid var(--green-border);
+    border-radius: 10px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .resource-card h4 { font-size: 14px; color: var(--green-dark); font-weight: 700; }
+  .resource-card p { font-family: Arial, sans-serif; font-size: 12px; color: var(--text-mid); line-height: 1.5; flex: 1; }
+  .resource-card a { font-family: Arial, sans-serif; font-size: 12px; color: var(--green); font-weight: 600; }
+
+  /* ── PHASE TIMELINE ── */
+  .phases { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }
+  .phase-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  @media (max-width: 620px) { .phase-item { grid-template-columns: 1fr; gap: 8px; } }
+  .phase-tag {
+    background: var(--green);
+    color: var(--white);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .phase-tag span { display: block; font-size: 10px; font-weight: 400; color: #C8E6C9; margin-top: 2px; }
+  .phase-content {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .phase-content h4 { font-size: 14px; color: var(--green-dark); margin-bottom: 6px; }
+  .phase-content p { font-family: Arial, sans-serif; font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: var(--green);
+    padding: 80px 5%;
+    text-align: center;
+  }
+  .cta-section h2 { color: var(--white); margin-bottom: 14px; }
+  .cta-section p { color: #C8E6C9; font-family: Arial, sans-serif; font-size: 16px; max-width: 520px; margin: 0 auto 36px; line-height: 1.7; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-white {
+    background: var(--white);
+    color: var(--green-dark);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    display: inline-block;
+  }
+  .btn-white:hover { background: #E8F5E9; text-decoration: none; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.5);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--white); text-decoration: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-dark);
+    padding: 48px 5% 32px;
+  }
+  .footer-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 780px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .footer-top { grid-template-columns: 1fr; } }
+  .footer-brand h3 { color: var(--white); font-size: 22px; margin-bottom: 10px; }
+  .footer-brand p { color: #A5D6A7; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.7; max-width: 280px; }
+  .footer-col h5 { color: #C8E6C9; font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px; }
+  .footer-col ul { list-style: none; padding: 0; }
+  .footer-col ul li { margin-bottom: 8px; }
+  .footer-col ul li a { color: #A5D6A7; font-family: Arial, sans-serif; font-size: 13px; }
+  .footer-col ul li a:hover { color: var(--white); text-decoration: none; }
+  .footer-bottom {
+    border-top: 0.5px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom p { font-family: Arial, sans-serif; font-size: 12px; color: rgba(165,214,167,0.6); }
+  .footer-hashtags { display: flex; gap: 12px; flex-wrap: wrap; }
+  .footer-hashtags span { font-family: Arial, sans-serif; font-size: 11px; color: rgba(165,214,167,0.5); }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+  .divider-green { border: none; border-top: 1px solid rgba(255,255,255,0.1); }
+
+  /* ── QUOTE ── */
+  .pull-quote {
+    background: var(--green-light);
+    border-left: 4px solid var(--green);
+    border-radius: 0 12px 12px 0;
+    padding: 24px 28px;
+    margin: 36px 0 0;
+  }
+  .pull-quote p { font-size: 18px; color: var(--green-dark); font-style: italic; line-height: 1.6; }
+
+  /* ── MEDIA QUERIES ── */
+  @media (max-width: 640px) {
+    .hero { padding: 60px 5% 56px; }
+    .section, .section-alt, .section-dark { padding: 52px 5%; }
+  }
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #C8E6C9;
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none;
+    background: #1B5E20;
+    flex-direction: column;
+    padding: 12px 5% 20px;
+    position: sticky;
+    top: 64px;
+    z-index: 99;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-link {
+    color: #C8E6C9;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 12px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.1);
+    text-decoration: none;
+  }
+  .mobile-link:last-child { border-bottom: none; }
+  .mobile-link:hover { color: #fff; text-decoration: none; }
+  .mobile-cta {
+    margin-top: 10px;
+    background: #fff;
+    color: #1B5E20 !important;
+    padding: 12px 24px !important;
+    border-radius: 24px;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: none !important;
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  /* ── SCROLL OFFSET for sticky nav ── */
+  section[id], div[id] {
+    scroll-margin-top: 72px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-brand">
+    Voice of Farmers
+    <span>New Zealand · Farming Community</span>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#pillars" class="nav-link">Our Focus</a></li>
+    <li><a href="#mission" class="nav-link">Mission</a></li>
+    <li><a href="#support" class="nav-link">Support</a></li>
+    <li><a href="#get-involved" class="nav-cta nav-link">Get Involved</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#pillars" class="mobile-link">Our Focus</a>
+  <a href="#mission" class="mobile-link">Mission</a>
+  <a href="#support" class="mobile-link">Support</a>
+  <a href="#get-involved" class="mobile-link mobile-cta">Get Involved</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pill">New Zealand · Farming Community · YouTube Movement</div>
+  <h1>Voice of Farmers</h1>
+  <p class="hero-tagline">Every farmer. Every role. Every region. One voice.</p>
+  <p class="hero-desc">We interview farmers, growers, and rural families across Aotearoa and share their real stories on YouTube — so every farmer in New Zealand knows they are seen, valued, and supported.</p>
+  <div class="hero-btns">
+    <a href="#about" class="btn-primary">Learn more</a>
+    <a href="#get-involved" class="btn-outline">Share your story</a>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">48%</div>
+      <div class="stat-label">of NZ dairy farmers reported mental health challenges in 2023</div>
+      <div class="stat-src">DairyNZ, View from the Cowshed 2023</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">60%</div>
+      <div class="stat-label">said rural areas do not have enough mental health support</div>
+      <div class="stat-src">DairyNZ, View from the Cowshed 2023</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50%</div>
+      <div class="stat-label">of farm owners have not discussed or started a succession plan</div>
+      <div class="stat-src">Rabobank, Changing of the Guard 2025</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$150B</div>
+      <div class="stat-label">in NZ farming assets changing hands over the next decade</div>
+      <div class="stat-src">Rabobank, Changing of the Guard 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE ARE -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-label">What is Voice of Farmers?</div>
+    <div class="what-grid">
+      <div class="what-text">
+        <h2>New Zealand's farming community deserves to be heard.</h2>
+        <p>Voice of Farmers is a YouTube-based movement that gives every farmer, grower, and rural family in Aotearoa a platform to share real stories about their life on the land.</p>
+        <p>Starting in Waikato and growing nationally, we interview farmers across every role and tenure. No scripts. No filter. Just honest conversations that help farmers feel less alone and more supported.</p>
+        <p>Our videos are free to watch and shared publicly. The audience includes other farmers, rural families, urban New Zealanders, and anyone who wants to understand the farming community from those who live it every day.</p>
+        <div class="pull-quote">
+          <p>"Farmers do great work for this country. It is time this country heard them."</p>
+        </div>
+      </div>
+      <div class="what-box">
+        <h3>This movement is for everyone in farming</h3>
+        <p>We cover every role, every region, and every stage of farming life — because every voice matters and every story has value.</p>
+        <div class="what-tags">
+          <span class="tag">Owner-operators</span>
+          <span class="tag">Sharemilkers</span>
+          <span class="tag">Contract milkers</span>
+          <span class="tag">Farm workers</span>
+          <span class="tag">Rural families</span>
+          <span class="tag">Young farmers</span>
+          <span class="tag">Horticulture</span>
+          <span class="tag">Sheep and beef</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- WHY WE NEED A WEBSITE -->
+<section class="section-alt" id="why">
+  <div class="section-inner">
+    <div class="section-label">Why this website exists</div>
+    <h2>A permanent home for every farming voice in New Zealand.</h2>
+    <p class="lead">Social media feeds come and go. YouTube algorithms change. This website is where Voice of Farmers lives — a place that any farmer, policy maker, researcher, or rural family can find at any time and understand exactly what this movement stands for.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </div>
+        <h4>A home for the interviews</h4>
+        <p>Every interview we publish is accessible here — easy to find, easy to share, and easy to watch for farmers anywhere in Aotearoa.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <h4>Connect with support services</h4>
+        <p>Every farmer who visits this website can immediately find Farmstrong, the Rural Support Trust, Rabobank succession workshops, and more — in one place.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+        </div>
+        <h4>Useful to policy makers</h4>
+        <p>Government agencies and policy makers can access real farmer voices and ground-level data that help inform better rural policy decisions for New Zealand.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <h4>Credibility for the movement</h4>
+        <p>A professional website shows that Voice of Farmers is a serious, organised movement — not just a social media account. It builds trust with farmers, media, and partners.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
+        </div>
+        <h4>Easy to share</h4>
+        <p>Farmers, media, and industry organisations can share a single link that tells the whole story — what the movement is, what it does, and how to get involved.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+        </div>
+        <h4>A legacy beyond the feed</h4>
+        <p>Social media posts disappear. This website ensures the movement's story, values, and impact are permanently documented and accessible for years to come.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE PILLARS -->
+<section class="section" id="pillars">
+  <div class="section-inner">
+    <div class="section-label">What we cover</div>
+    <h2>Three focus areas. One farming community.</h2>
+    <p class="lead">Every interview we produce touches on one or more of these three areas — because they are the three things that most affect the lives of farmers and rural families across New Zealand right now.</p>
+    <div class="pillars-grid">
+
+      <div class="pillar-card">
+        <div class="pillar-num">1</div>
+        <h3>Mental health and wellbeing</h3>
+        <p>Farming is one of the most full-on lifestyles in New Zealand. We give farmers a space to talk about what keeps them going, what has helped, and what other farmers can do.</p>
+        <ul>
+          <li>Real farmer-to-farmer stories</li>
+          <li>Practical wellbeing habits that work</li>
+          <li>Connections to Farmstrong and Rural Support Trust</li>
+          <li>Reducing isolation through shared experience</li>
+          <li>Honest conversations that reduce stigma</li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-num">2</div>
+        <h3>Succession and future planning</h3>
+        <p>Over $150 billion in NZ farming assets will change hands in the next decade. Yet 50% of farm owners have not started planning. These conversations need to happen now.</p>
+        <ul>
+          <li>How farmers are thinking about their future</li>
+          <li>Real succession journeys — what worked and what didn't</li>
+          <li>Links to free Rabobank succession workshops</li>
+          <li>Advice for the next generation entering farming</li>
+          <li>The emotional and financial side of transition</li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-num">3</div>
+        <h3>Environmental stewardship</h3>
+        <p>New Zealand farmers are adapting to significant environmental change. We share how farmers are actually working with the land — in their own words, from their own experience.</p>
+        <ul>
+          <li>How farmers are caring for land and water</li>
+          <li>Practical experience with freshwater compliance</li>
+          <li>Land stewardship across generations</li>
+          <li>The farmer's perspective on environmental change</li>
+          <li>Connecting with DairyNZ and catchment groups</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MISSION VISION SOUL -->
+<section class="section-dark" id="mission">
+  <div class="section-inner">
+    <div class="section-label section-label-white">Our foundation</div>
+    <h2 class="white">Mission, vision, and the soul of this movement.</h2>
+    <p class="lead white">Three things anchor everything we do. They are not corporate statements — they are the reason Voice of Farmers exists.</p>
+    <div class="mvs-grid">
+      <div class="mvs-item">
+        <div class="mvs-label">Mission</div>
+        <h3>To give every farmer in Aotearoa a voice — and make sure it is heard.</h3>
+        <p>We interview real people doing real work on the land and share their stories with New Zealand. No agenda. No script. Just the truth of farming life as the people who live it describe it.</p>
+      </div>
+      <div class="mvs-item">
+        <div class="mvs-label">Vision</div>
+        <h3>A New Zealand where every farmer feels seen, valued, and supported.</h3>
+        <p>We see a country where the urban-rural gap is smaller because more people understand what farming life is actually like. Where farmers know help exists and know how to find it. Where no one is farming alone.</p>
+      </div>
+      <div class="mvs-item">
+        <div class="mvs-label">Soul</div>
+        <h3>Farmers feed this country. This movement feeds farmers.</h3>
+        <p>The soul of Voice of Farmers is simple: farmers do great work for New Zealand and deserve the same care, support, and recognition that they give to the land, the animals, and the communities they serve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT HELPS -->
+<section class="section-alt">
+  <div class="section-inner">
+    <div class="section-label">Who this serves and how</div>
+    <h2>Built for farmers. Useful to everyone.</h2>
+    <p class="lead">Voice of Farmers is made by farmers and for farmers. But its impact reaches beyond the farm gate — to families, communities, policy makers, and anyone with a stake in the future of rural New Zealand.</p>
+    <div class="helps-grid">
+
+      <div class="helps-card">
+        <div class="audience-tag">For farmers</div>
+        <h4>What this movement delivers to you</h4>
+        <ul>
+          <li>A platform to share your story on your own terms</li>
+          <li>Practical wellbeing resources and support services, easy to find</li>
+          <li>Connection with other farmers going through similar things</li>
+          <li>Information about free succession workshops and planning tools</li>
+          <li>A reminder that you are not alone — other farmers feel what you feel</li>
+          <li>Your voice in a national conversation about farming in New Zealand</li>
+        </ul>
+      </div>
+
+      <div class="helps-card">
+        <div class="audience-tag">For rural families</div>
+        <h4>What this movement delivers to rural whānau</h4>
+        <ul>
+          <li>Honest stories from other farming families that reflect your own life</li>
+          <li>Resources for partners, spouses, and parents who carry the load alongside the farmer</li>
+          <li>Support service contacts that are easy to share with someone who needs them</li>
+          <li>Conversations about succession that affect the whole family, not just the farm owner</li>
+          <li>A community that understands rural life from the inside</li>
+        </ul>
+      </div>
+
+      <div class="helps-card">
+        <div class="audience-tag">For urban New Zealanders</div>
+        <h4>What this movement delivers to the wider public</h4>
+        <ul>
+          <li>An honest window into farming life beyond the headlines</li>
+          <li>Research shows the rural-urban divide is smaller than most people think — this movement bridges it further</li>
+          <li>Understanding of what farmers actually do to care for the land and water</li>
+          <li>A chance to hear from the people behind New Zealand's $25 billion dairy export industry</li>
+          <li>Farmers trusted as an information source more than mainstream media (RSNZ, 2024)</li>
+        </ul>
+      </div>
+
+      <div class="helps-card">
+        <div class="audience-tag">For policy makers and industry</div>
+        <h4>What this movement delivers to decision makers</h4>
+        <ul>
+          <li>A primary source of ground-level farmer experience — unfiltered by lobby groups or industry bodies</li>
+          <li>Real evidence of where support services are reaching farmers and where they are not</li>
+          <li>Farmer perspectives on succession, compliance, and investment that complement formal research</li>
+          <li>A credible, independent voice that policy makers can listen to and learn from</li>
+          <li>Documented farmer experiences that can inform rural mental health funding, succession policy, and environmental compliance design</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT RESOURCES -->
+<section class="section" id="support">
+  <div class="section-inner">
+    <div class="section-label">Free support — available right now</div>
+    <h2>Every farmer in New Zealand should know these exist.</h2>
+    <p class="lead">These organisations are free, trusted, and available to all farmers and rural families. We include them in every video description. They are listed here so anyone can find them in one place.</p>
+    <div class="resources-grid">
+      <div class="resource-card">
+        <h4>Farmstrong</h4>
+        <p>Evidence-based wellbeing programme for farmers and their families. Five Ways to Wellbeing tools, farmer stories, and practical resources. Backed by the Mental Health Foundation, FMG, and ACC since 2016.</p>
+        <a href="https://farmstrong.co.nz" target="_blank">farmstrong.co.nz</a>
+      </div>
+      <div class="resource-card">
+        <h4>Rural Support Trust</h4>
+        <p>Free, confidential support for all rural people. 14 regional teams across New Zealand. In 2024, helped over 1,500 people. Every $1 invested creates $4.60–$5.50 in social value.</p>
+        <a href="https://rural-support.org.nz" target="_blank">0800 787 254 · rural-support.org.nz</a>
+      </div>
+      <div class="resource-card">
+        <h4>Rabobank Succession Workshops</h4>
+        <p>Free one-day Planning for Succession workshops. Open to all farmers — no banking relationship required. 24 workshops planned across New Zealand in 2026.</p>
+        <a href="https://rabobank.co.nz" target="_blank">rabobank.co.nz</a>
+      </div>
+      <div class="resource-card">
+        <h4>DairyNZ</h4>
+        <p>Technical guidance, environmental compliance tools, freshwater resources, and the annual View from the Cowshed survey — the most comprehensive source of farmer sentiment data in New Zealand.</p>
+        <a href="https://dairynz.co.nz" target="_blank">dairynz.co.nz · 0800 432 4796</a>
+      </div>
+      <div class="resource-card">
+        <h4>Federated Farmers</h4>
+        <p>Independent advocacy, legal guidance, and peer networks for farming families across New Zealand. The united voice of New Zealand farmers in policy and public conversation.</p>
+        <a href="https://fedfarm.org.nz" target="_blank">fedfarm.org.nz · 0800 327 646</a>
+      </div>
+      <div class="resource-card">
+        <h4>Dairy Women's Network</h4>
+        <p>Professional development, community, and peer support for women across the dairy sector. Building leadership and connection for women at every stage of their farming career.</p>
+        <a href="https://dwn.co.nz" target="_blank">dwn.co.nz</a>
+      </div>
+      <div class="resource-card">
+        <h4>NZ Young Farmers</h4>
+        <p>Community, competitions, and career development for people under 35 in or around New Zealand's primary industries. The future of farming starts here.</p>
+        <a href="https://youngfarmers.co.nz" target="_blank">youngfarmers.co.nz</a>
+      </div>
+      <div class="resource-card">
+        <h4>Surfing for Farmers</h4>
+        <p>A grassroots wellbeing initiative that gets farmers off the farm and into the ocean. Based in Raglan, Waikato. Received $160,000 from the Government's Rural Wellbeing Fund in 2026.</p>
+        <a href="https://www.facebook.com/surfingforfarmers" target="_blank">Find them on Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section-alt">
+  <div class="section-inner">
+    <div class="section-label">How we grow</div>
+    <h2>Starting in Waikato. Growing across Aotearoa.</h2>
+    <p class="lead">Voice of Farmers rolls out in four phases over 12 months. We start where we are — on the ground in Waikato — and grow from there.</p>
+    <div class="phases">
+      <div class="phase-item">
+        <div class="phase-tag">Phase 1<span>Months 1–2</span></div>
+        <div class="phase-content">
+          <h4>Foundation — Launch in Waikato</h4>
+          <p>YouTube channel live. First interviews with Waikato farmers across different roles. Social media presence built. Every video description includes links to Farmstrong, Rural Support Trust, and Rabobank workshops.</p>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-tag">Phase 2<span>Months 3–5</span></div>
+        <div class="phase-content">
+          <h4>Build — Fortnightly interviews, growing audience</h4>
+          <p>Interviews released every two weeks. Active promotion of free succession workshops. Partnerships with DairyNZ, Federated Farmers, and Farmstrong for reach and credibility.</p>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-tag">Phase 3<span>Months 6–9</span></div>
+        <div class="phase-content">
+          <h4>Amplify — National reach and media</h4>
+          <p>Interviews expand beyond Waikato to other regions. Content pitched to Rural News, Farmers Weekly, and The Country. Mental Health Awareness Month campaign. Online resource hub live.</p>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-tag">Phase 4<span>Months 10–12</span></div>
+        <div class="phase-content">
+          <h4>Sustain — Community event and advocacy</h4>
+          <p>A community event bringing farmers and support providers together. Review of farmer feedback to identify policy gaps. University and research partnerships explored. Planning for Year 2 begins.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="get-involved">
+  <h2>Want to share your story?</h2>
+  <p>We are looking for farmers and growers across Aotearoa to interview for our YouTube channel. Your experience could help another farmer who needs to hear it. It is free, it is your words, and it will reach people who understand exactly what you are talking about.</p>
+  <div class="cta-btns">
+    <a href="https://www.facebook.com/share/18fZTa2RB7/" target="_blank" class="btn-white">Comment on Facebook</a>
+    <a href="mailto:voiceoffarmers@gmail.com" class="btn-ghost">Send us a message</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Voice of Farmers</h3>
+        <p>A YouTube movement giving every farmer, grower, and rural family in Aotearoa New Zealand a platform to speak. Starting in Waikato. Growing across the country.</p>
+      </div>
+      <div class="footer-col">
+        <h5>The Movement</h5>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#mission">Mission and vision</a></li>
+          <li><a href="#pillars">Our focus</a></li>
+          <li><a href="#get-involved">Get involved</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="https://farmstrong.co.nz" target="_blank">Farmstrong</a></li>
+          <li><a href="https://rural-support.org.nz" target="_blank">Rural Support Trust</a></li>
+          <li><a href="https://rabobank.co.nz" target="_blank">Rabobank workshops</a></li>
+          <li><a href="https://dairynz.co.nz" target="_blank">DairyNZ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://youtube.com/@voiceoffarmersnz?si=wtKM1H_VzpzS9IUv" target="_blank">YouTube</a></li>
+          <li><a href="https://www.facebook.com/share/18fZTa2RB7/" target="_blank">Facebook</a></li>
+          <li><a href="https://www.instagram.com/voice_of_farmers_nz" target="_blank">Instagram</a></li>
+          <li><a href="mailto:voiceoffarmers@gmail.com">Email us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Voice of Farmers · Starting in Waikato, growing across Aotearoa New Zealand · 2026</p>
+      <div class="footer-hashtags">
+        <span>#VoiceOfFarmers</span>
+        <span>#NZFarming</span>
+        <span>#RuralNZ</span>
+        <span>#MentalHealthMatters</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // ── SMOOTH SCROLL WITH NAV OFFSET ──
+  var NAV_HEIGHT = 68;
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.pageYOffset - NAV_HEIGHT;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+      // close mobile menu if open
+      var mm = document.getElementById('mobile-menu');
+      var hb = document.getElementById('hamburger');
+      if (mm) { mm.classList.remove('open'); }
+      if (hb) { hb.classList.remove('open'); }
+    });
+  });
+
+  // ── HAMBURGER TOGGLE ──
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+  }
+
+  // ── ACTIVE NAV HIGHLIGHT ──
+  var sections = document.querySelectorAll('section[id], div[id]');
+  var navLinks = document.querySelectorAll('.nav-link');
+
+  function setActiveLink() {
+    var scrollY = window.pageYOffset + NAV_HEIGHT + 20;
+    var current = '';
+    sections.forEach(function(sec) {
+      if (sec.offsetTop <= scrollY) { current = sec.getAttribute('id'); }
+    });
+    navLinks.forEach(function(link) {
+      link.style.color = '';
+      var href = link.getAttribute('href');
+      if (href === '#' + current) { link.style.color = '#ffffff'; }
+    });
+  }
+
+  window.addEventListener('scroll', setActiveLink);
+  setActiveLink();
+
+  // ── EXTERNAL LINKS OPEN IN NEW TAB ──
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener noreferrer');
+  });
+
+  // ── EMAIL LINKS WORK DIRECTLY ──
+  document.querySelectorAll('a[href^="mailto"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      window.location.href = this.getAttribute('href');
+    });
+  });
+
+  // ── NAV SHADOW ON SCROLL ──
+  var nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 10) {
+      nav.style.boxShadow = '0 2px 12px rgba(0,0,0,0.25)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
